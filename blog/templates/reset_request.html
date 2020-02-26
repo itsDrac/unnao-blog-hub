@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block head %}
+{{ super() }}
+<link href="../static/css/login.css" rel="stylesheet" type="text/css" />
+
+{% endblock head %}
+
+
+{% block body %}
+
+<div id="backgro">
+    <div class="contain">
+        <div class="form">
+            <h2>Reset Password</h2>
+            <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                <div class="inputBox">
+
+                    {% if form.email.errors %}
+                    <ul class="errors">{% for error in form.email.errors %}<p>{{ error }}</p>{% endfor %}</ul>
+                    {% endif %}
+                    {{ form.email(placeholder="E-mail") }}
+                </div>
+                <br>
+                {{ form.submit() }}
+        </div>
+        </form>
+    </div>
+</div>
+</div>
+
+{% endblock %}

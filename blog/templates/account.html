@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block head %}
+{{ super() }}
+<link href="../static/css/account.css" rel="stylesheet" type="text/css" />
+{% endblock head %}
+{% block body %}
+<!--<section>
+    <div class="pattern">
+        <div class="face face1"></div>
+        <div class="face face2"></div>
+    </div>
+</section>-->
+<h1>{{ current_user.username }}</h1>
+<div class="form-group">
+    <img width="80" height="80" class="rounded-circle rounded-lg mr-3" src="{{ image_file }}">
+    <form method="POST" action="" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+
+        {% if form.username.errors %}
+        <ul class="errors">{% for error in form.username.errors %}<p class="text-danger">{{ error }}</p>{% endfor %}
+        </ul>
+        {% endif %}
+        {{ form.username(value= current_user.username ) }}
+
+        {% if form.email.errors %}
+        <ul class="errors">{% for error in form.email.errors %}<p class="text-danger">{{ error }}</p>{% endfor %}</ul>
+        {% endif %}
+        {{ form.email(value= current_user.email ) }}
+
+        {{ form.picture.lable }}
+        <h4>Upload Profile Pic </h4>
+        {{ form.picture(class="form-control-file") }}
+        {% if form.picture.errors %}
+        <ul class="errors">{% for error in form.picture.errors %}<p class="text-danger">{{ error }}</p>{% endfor %}</ul>
+        {% endif %}
+
+        <br><br>
+        {{ form.update() }}
+
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,5 @@
+body {
+  background: -webkit-linear-gradient(left, #00B9FF 18px, transparent 1%) center, -webkit-linear-gradient(#00B9FF 18px, transparent 1%) center, #00FA99;
+  background: linear-gradient(90deg, #00B9FF 18px, transparent 1%) center, linear-gradient(#00B9FF 18px, transparent 1%) center, #00FA99;
+  background-size: 22px 22px;
+}

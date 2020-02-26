@@ -1,0 +1,147 @@
+html, body {
+  height:100%;
+}
+body {
+  backgroung-repeat : no-repeat;
+  --c : rgba(255,255,255,0.7);
+  --t : transparent;
+
+  -webkit-box-flex:1;
+      -ms-flex:1;
+          flex:1;
+
+	background-image:
+  -webkit-repeating-linear-gradient(45deg, var(--c) 0, var(--c) 20px, var(--t) 20px, var(--t) 32px, var(--c) 32px, var(--c) 44px, var(--t) 44px, var(--t) 56px, var(--c) 56px, var(--c) 68px, var(--t) 68px, var(--t) 80px, var(--c) 0),
+  -webkit-repeating-linear-gradient(135deg, var(--c) 0, var(--c) 20px, var(--t) 20px, var(--t) 32px, var(--c) 32px, var(--c) 44px, var(--t) 44px, var(--t) 56px, var(--c) 56px, var(--c) 68px, var(--t) 68px, var(--t) 80px, var(--c) 0),
+  -webkit-linear-gradient(top left, #FC354C, #0ABFBC);
+	background-image:
+  repeating-linear-gradient(45deg, var(--c) 0, var(--c) 20px, var(--t) 20px, var(--t) 32px, var(--c) 32px, var(--c) 44px, var(--t) 44px, var(--t) 56px, var(--c) 56px, var(--c) 68px, var(--t) 68px, var(--t) 80px, var(--c) 0),
+  repeating-linear-gradient(-45deg, var(--c) 0, var(--c) 20px, var(--t) 20px, var(--t) 32px, var(--c) 32px, var(--c) 44px, var(--t) 44px, var(--t) 56px, var(--c) 56px, var(--c) 68px, var(--t) 68px, var(--t) 80px, var(--c) 0),
+  linear-gradient(to bottom right, #FC354C, #0ABFBC);
+}
+
+nav{
+    "background-color: #FC354C;"
+}
+
+
+#backgro
+{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-size: 100% 100%;
+    font-family: consolas;
+}
+.contain
+{
+    position: relative;
+    width: 450px;
+    min-height: 300px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 1);
+}
+
+.contain:before
+{
+    content: '';
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.form
+{
+    position: absolute;
+    width: 120%;
+    height: 100%;
+    padding: 7%;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.form h2
+{
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-size: 24px;
+    font-family: 'Lexend Zetta', sans-serif;
+}
+
+.form .inputBox
+{
+    width: 75%;
+    margin-top: 20px;
+}
+
+.form .inputBox input
+{
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #fff;
+    outline: none;
+    font-size: 18px;
+    color: #fff;
+    padding: 5px 0;
+    font-family: consolas;
+}
+::placeholder
+{
+    color: #eee;
+    font-family: 'Lobster', cursive;
+}
+
+.form .inputBox input[type="submit"]
+{
+    background: #fff;
+    color: #000;
+    border: none;
+    font-weight: 900;
+    max-width: 100px;
+    cursor: pointer;
+    font-family: 'Grenze', serif;
+}
+
+.contain:after
+{
+    content: '';
+    position: absolute;
+    top:-5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(45deg,#ff0047,#6eff00);
+    pointer-events: none;
+    animation: animate 10s linear infinite;
+}
+
+@keyframes animate
+{
+    0%
+    {
+        filter: blur(60px) hue-rotate(0deg);
+    }
+    100%
+    {
+        filter: blur(60px) hue-rotate(360deg);
+    }
+}
+
+.form p
+{
+    color: #eee;
+    font-family: 'Grenze', serif;
+}
+.form p a
+{
+    color: #fff;
+    font-family: 'Grenze', serif;
+}

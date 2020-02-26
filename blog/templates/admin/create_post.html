@@ -1,0 +1,27 @@
+{% extends 'admin/model/create.html' %}
+
+{% block body %}
+<h2>Create Post</h2>
+<form method="POST" action="" enctype="multipart/form-data">
+    <h1>MicroBlog Edit View</h1>
+    {{ form.hidden_tag() }}
+    <div class="inputBox">
+        {% if form.title.errors %}
+        <ul class="errors">{% for error in form.title.errors %}<p>{{ error }}</p>{% endfor %}</ul>
+        {% else %}
+        {{ form.title(placeholder="Title") }}
+        {% endif %}
+    </div>
+    <div class="inputBox">
+        {% if form.content.errors %}
+        <ul class="errors">{% for error in form.content.errors %}<p>{{ error }}</p>{% endfor %}</ul>
+        {% else %}
+        {{ form.content(placeholder="Content") }}
+        {% endif %}
+    </div>
+    <div class="inputBox">
+        {{form.file(multiple="multiple")}}
+        {{ form.post() }}
+    </div>
+</form>
+{% endblock %}

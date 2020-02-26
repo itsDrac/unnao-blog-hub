@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block head %}
+{{ super() }}
+<link href="../static/css/login.css" rel="stylesheet" type="text/css" />
+
+{% endblock head %}
+
+
+{% block body %}
+
+<div id="backgro">
+  <div class="contain">
+    <div class="form">
+      <h2>Login Form</h2>
+      <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div class="inputBox">
+
+          {% if form.username.errors %}
+          <ul class="errors">{% for error in form.username.errors %}<p>{{ error }}</p>{% endfor %}</ul>
+          {% else %}
+          {{ form.username(placeholder="Username") }}
+          {% endif %}
+        </div>
+        <div class="inputBox">
+          {% if form.password.errors %}
+          <ul class="errors">{% for error in form.password.errors %}<p>{{ error }}</p>{% endfor %}</ul>
+          {% else %}
+          {{ form.password(placeholder="Password") }}
+          {% endif %}
+        </div>
+        <div class="inputBox">
+          {{ form.login() }}
+        </div>
+        <h5 class="mr-auto">{{ form.remember() }} Remember Me ?</h5>
+        <!--<p>Forgot password ? <a href="{{ url_for('reset_request') }}">Click Here</a></p>-->
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

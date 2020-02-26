@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<div class="container-fluid">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            {% for i in range((post.photos | list)| length) %}
+            <li data-target="#myCarousel" {% if loop.first %}class="active" {% endif %}></li>
+            {% endfor %}
+        </ol>
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                {% for photo in post.photos %}
+                <div class="carousel-item {% if loop.first %}active{% endif %}">
+                    <img src="../static/images/post_pics/{{ photo.name }}" class="d-block w-100" alt="..."
+                        style="max-width: 600px; max-height: 800px;">
+                </div>
+            </div>
+            <a class="carousel-control-prev" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ post.title }}</h5>
+            <p class="card-text">{{ post.content }}</p>
+        </div>
+    </div>
+
+    <br><br><br>
+    {% if current_user.is_authenticated %}
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        {% if form.comment.errors %}
+        <ul class="errors">{% for error in form.comment.errors %}<p>{{ error }}</p>{% endfor %}</ul>
+        {% endif %}
+        {{ form.comment(placeholder="Comment") }}
+        {{ form.submit() }}
+    </form>
+    {% endif %}
+    {% for comment in post.comments %}
+    <div class="media my-3">
+        <img src="../static/images/profile_pics/{{ comment.author.img_file }}" width="80" height="80"
+            class="rounded-circle rounded-lg mr-3" alt="...">
+        <div class="media-body">
+            <h5 class="mt-0">{{ comment.author.username }}</h5>
+            {{ comment.comment }}
+        </div>
+    </div>
+    {% endfor %}
+
+    <br><br><br>
+</div>
+
+{% endblock %}
