@@ -23,6 +23,8 @@ MarkupSafe = "==1.1.1"
 Pillow = "==7.0.0"
 SQLAlchemy = "==1.3.13"
 Werkzeug = "==0.16.0"
+gunicorn = "*"
+gunicron = "*"
 
 [requires]
 python_version = "3.7"
